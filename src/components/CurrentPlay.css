@@ -1,0 +1,89 @@
+.homeFullSong{
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffff;
+}
+.song{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid rgb(243, 240, 240);
+    margin: 3px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+}
+.song img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+.songNamePlay{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+}
+.songNamePlay span{
+    font-size: 14px;
+    font-weight: 550;
+}
+#singerName{
+    font-size: 11px;
+}
+.song audio{
+    width: 45%;
+    margin-left:4% ;
+}
+
+.fullViewSong{
+    height: 91vh;
+    width: 100%;
+    background-color: #3333;
+    position: fixed;
+    top: 63px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#333;
+}
+.fullViewSong img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid rgb(84 83 83);
+    margin-top: 20%;
+}
+.songNamePlayFullView{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+.songNamePlayFullView span{
+    font-size: 20px;
+    font-weight: 700;
+}
+#singerNameFullView{
+    font-size: 15px;
+    font-weight: 550;
+}
+.fullViewSong audio{
+    position: fixed;
+    bottom: 45px;
+}
+.fullViewSong i{
+    font-size: 30px;
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
