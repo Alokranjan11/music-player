@@ -1,7 +1,15 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./CurrentPlay.css";
 
 const CurrentPlay = ({playSong,showfullScreenPage,openFullScreenSong,closeFullScreenSong}) => {
+    const [currentPlayingSong,setCurrentPlayingSong] = React.useState(playSong.url)
+    const [autoplaySong,setAutoplaySong] = React.useState(false);
+    useEffect(()=>{
+        setAutoplaySong(false)
+        setCurrentPlayingSong(playSong.url)
+        setAutoplaySong(true)
+
+    },[playSong])
     return (
         <>
             <div className="songPage">
@@ -12,8 +20,8 @@ const CurrentPlay = ({playSong,showfullScreenPage,openFullScreenSong,closeFullSc
                             <span>{playSong.title}</span>
                             <span id="singerName">{playSong.artist}</span>
                         </div>
-                        <audio controls>
-                            <source src={playSong.url} type="audio/mpeg" />
+                        <audio controls autoPlay={autoplaySong}>
+                            <source src={currentPlayingSong} type="audio/mpeg" />
                             Your browser does not support the audio element.
                         </audio>
                     </div>
@@ -26,8 +34,8 @@ const CurrentPlay = ({playSong,showfullScreenPage,openFullScreenSong,closeFullSc
                                 <span>{playSong.title}</span>
                                 <span id="singerNameFullView">{playSong.artist}</span>
                             </div>
-                            <audio controls>
-                                <source src={playSong.url} type="audio/mpeg" />
+                            <audio controls autoPlay={autoplaySong}>
+                                <source src={currentPlayingSong} type="audio/mpeg" />
                                 Your browser does not support the audio element.
                             </audio>
                         </div>

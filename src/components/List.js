@@ -5,7 +5,7 @@ import CurrentPlay from "./CurrentPlay";
 
 const List = () => {
     const [songList, setSongList] = useState();
-    const [currentPlaying, setCurrentPlaying] = useState(song[1]);
+    const [currentPlaying, setCurrentPlaying] = useState(song[0]);
     const [fullScreenPage, setFullScreenPage] = useState(true);
 
     useEffect(() => {
@@ -13,7 +13,8 @@ const List = () => {
         setSongList(song);
     }, []);
 
-    const playMySong = (getMySong) => {
+    const playMySong = (event,getMySong) => {
+        event.stopPropagation();
         setCurrentPlaying(getMySong);
         let modifiedSongList = [];
         songList.forEach((data) => {
@@ -32,6 +33,10 @@ const List = () => {
     const closeFullScreenSong = () => {
         setFullScreenPage(true);
     };
+    const openCurrentSong=(e,data)=>{
+        playMySong(e,data);
+        openFullScreenSong()
+    }
 
     return (
         <>
@@ -40,16 +45,16 @@ const List = () => {
                     {songList &&
                         songList.map((data) => {
                             return (
-                                <div className="songList" key={data.id}>
+                                <div className="songList" key={data.id} onClick={(e)=>openCurrentSong(e,data)}>
                                     <img src={data.artwork} alt="songpic" />
                                     <div className="songName">
                                         <span>{data.title}</span>
                                         <span id="artistName">{data.artist}</span>
                                     </div>
                                     {!data.selected ? (
-                                        <i onClick={() => playMySong(data)} className="fas fa-play"></i>
+                                        <i onClick={(e) => playMySong(e,data)} className="fas fa-play"></i>
                                     ) : (
-                                        <i className="fas fa-pause" onClick={() => playMySong(data)}></i>
+                                        <i className="fas fa-pause" onClick={(e) => playMySong(e,data)}></i>
                                     )}
                                     {/* <i onClick={()=>playMySong(data)} className="fas fa-play"></i> */}
                                     {/* <i class="fas fa-pause"></i> */}

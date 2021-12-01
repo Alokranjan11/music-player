@@ -40,16 +40,18 @@
     font-size: 11px;
 }
 .song audio{
-    width: 45%;
-    margin-left:4% ;
+    width: 48%;
+    /* margin-left: 4%; */
+    height: 6vh;
+    position: absolute;
+    right: 1px;
 }
-
 .fullViewSong{
     height: 91vh;
     width: 100%;
     background-color: #3333;
     position: fixed;
-    top: 63px;
+    top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,8 +61,9 @@
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    border: 1px solid rgb(84 83 83);
-    margin-top: 20%;
+    border: 3px solid rgb(62 61 61);
+    position: absolute;
+    top: 120px;
 }
 .songNamePlayFullView{
     display: flex;
@@ -71,14 +74,20 @@
 .songNamePlayFullView span{
     font-size: 20px;
     font-weight: 700;
+    color: orange;
+    position: absolute;
+    top: 280px;
 }
 #singerNameFullView{
     font-size: 15px;
     font-weight: 550;
+    position: absolute;
+    top: 300px;
 }
 .fullViewSong audio{
     position: fixed;
     bottom: 45px;
+    height: 6vh;
 }
 .fullViewSong i{
     font-size: 30px;
